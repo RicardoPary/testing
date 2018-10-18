@@ -1,6 +1,8 @@
-import { TestBed, async } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { AppComponent } from './app.component';
+import {TestBed, async} from '@angular/core/testing';
+import {RouterTestingModule} from '@angular/router/testing';
+import {AppComponent} from '../app/app.component';
+import {Calculator} from '../app/shared/models/calculator';
+
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -31,5 +33,17 @@ describe('AppComponent', () => {
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('h1').textContent).toContain('Welcome to testing!');
+  });
+});
+
+describe('test for calculator', () => {
+
+  const calculator = new Calculator();
+
+  describe('test multiply', () => {
+    it('should return 9', () => {
+      const result = calculator.multiply(3, 3);
+      expect(result).toEqual(9);
+    });
   });
 });
